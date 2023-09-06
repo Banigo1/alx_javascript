@@ -1,4 +1,7 @@
-const lines = ["C is fun", "Pyhron is cool", "JavaScript is amazing"];
-for(let i = 0; i < lines.lenght; 1++){
-    console.log(lines[i]);
-}
+#!/usr/bin/node
+
+/* A script that prints prints 3 lines */
+
+console.log('C is fun');
+console.log('Python is cool');
+console.log('Javascript is amazing');
