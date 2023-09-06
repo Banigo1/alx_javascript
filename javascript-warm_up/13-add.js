@@ -1,5 +1,5 @@
-// 13-add.js
-const add = (a, b) => a + b;
+#!/usr/bin/node
 
-module.exports = add;
-console.log(add(4, 85));
+exports.add = function add (a, b) {
+    return (a + b);
+  };
