@@ -1,7 +1,7 @@
 
 // !/usr/bin/node
 
-const myObject = {
+myObject = {
   type: 'object',
   value: 12
 };
