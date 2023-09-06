@@ -1,8 +1,9 @@
-#!/usr/bin/node
-const myObject = {
-    type: 'object',
-    value: 12
-  };
-  console.log(myObject);
-  myObject.value = 89;
-  console.log(myObject);
+/*A script that prints 3 lines using
+an array of string and a loop*/
+
+
+const lines = ["C is fun", "Python is cool", "JavaScript is amazing"];
+
+for (let i = 0; i < lines.length; i++) {
+  console.log(lines[i]);
+}

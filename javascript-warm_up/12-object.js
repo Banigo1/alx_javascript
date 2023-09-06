@@ -1,5 +1,8 @@
-const lines = ["C is fun", "Python is cool", "Javascript is amazing"];
-
-for (const line of lines){
-    console.log(line);
-}
+#!/usr/bin/node
+const myObject = {
+    type: 'object',
+    value: 12
+  };
+  console.log(myObject);
+  myObject.value = 89;
+  console.log(myObject);
