@@ -5,7 +5,9 @@ function getRequestStatusCode(url) {
     if (error) {
       console.error(error);
     } else {
-      console.log(`code: ${response.statusCode}`);
+      const statusCode = response.statusCode === undefined ? 'N/A' : response.statusCode;
+      const formattedStatusCode = `code: ${statusCode}`.padEnd(10);
+      console.log(formattedStatusCode);
     }
   });
 }
