@@ -10,5 +10,5 @@ function getRequestStatusCode(url) {
   });
 }
 
-const urlToRequest = 'https://example.com'; // Replace with your desired URL
+const urlToRequest = 'intranet.alxswe.com/status'; // Replace with your desired URL
 getRequestStatusCode(urlToRequest);
