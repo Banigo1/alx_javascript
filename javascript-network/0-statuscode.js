@@ -1,19 +1,14 @@
-const axios = require('axios');
+const request = require('request');
 
-function getStatus(url) {
-  axios
-    .get(url)
-    .then(response => {
-      console.log('code:', response.status);
-    })
-    .catch(error => {
-      console.log('An error occurred:', error.message);
-    });
+function getRequestStatusCode(url) {
+  request.get(url, (error, response, body) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(`code: ${response.statusCode}`);
+    }
+  });
 }
 
-const url = process.argv[2];
-if (!url) {
-  console.log('Please provide a URL as an argument.');
-} else {
-  getStatus(url);
-}
+const urlToRequest = 'https://example.com'; // Replace with your desired URL
+getRequestStatusCode(urlToRequest);
