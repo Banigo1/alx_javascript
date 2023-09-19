@@ -10,5 +10,5 @@ function getRequestStatusCode(url) {
   });
 }
 
-const urlToRequest = 'https://intranet.alxswe.com/status'; // Replace with your desired URL
+const urlToRequest = 'https://intranet.alxswe.com/doesnt_exist'; // Replace with your desired URL
 getRequestStatusCode(urlToRequest);
