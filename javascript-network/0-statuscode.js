@@ -1,14 +1,9 @@
 const request = require('request');
 
-function getRequestStatusCode(url) {
-  request.get(url, (error, response, body) => {
-    if (error) {
-      console.error(error);
-    } else {
-      console.log(`code: ${response.statusCode}`);
-    }
-  });
-}
+let url = process.argv[2];
 
-const urlToRequest = 'https://swapi-api.alx-tools.com/api/films/'; // Replace with your desired URL
-getRequestStatusCode(urlToRequest);
+request(url, function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    console.log('code:', response && response.statusCode);
+  }
+});
