@@ -10,12 +10,9 @@
 let availableItems = ['Shampoo', 'Soap', 'Sponge', 'Water'];
 
 // Check if Local storage is enabled on your browser
-if (typeof(Storage) !== "undefined") {
-    createStore();
-    displayCart();
-} else {
+if (!window.localStorage) {
     alert('Sorry, your browser does not support Web storage. Try again with a better one');
-}
+  }
 
 // Function to add item to cart
 function addItemToCart(item) {
@@ -39,18 +36,23 @@ function createStore() {
 
 // Function to display cart
 function displayCart() {
-    let count = 0;
-    for(let i=0; i<localStorage.length; i++)   {
-        if(localStorage.getItem(localStorage.key(i)) === 'true') {
-            count++;
-        }
+    const numberOfItemsInCart = Object.keys(localStorage).length;
+  
+    if (numberOfItemsInCart === 0) {
+      return;
     }
-    if(count > 0) {
-        let p = document.createElement('p');
-        p.textContent = `You previously had ${count} items in your cart`;
-        document.body.appendChild(p);
-    }
-}
+  
+    const p = document.createElement('p');
+    p.textContent = `You previously had ${numberOfItemsInCart} items in your cart`;
+    document.body.appendChild(p);
+  }
+
+  // Displays the list of available items and call the createStore() and displayCart()
+  if (window.localStorage) {
+    createStore();
+    displayCart();
+  }
+  
     </script>
 </body>
 </html>
