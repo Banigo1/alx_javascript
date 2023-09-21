@@ -6,10 +6,10 @@
     <title>Local Storage Project</title>
   <script>
       
-       // Create an array availableItems that will contain all the available items.
+    // Create an array availableItems that will contain all the available items.
 let availableItems = ['Shampoo', 'Soap', 'Sponge', 'Water'];
 
-// Check if Local storage is enabled on your browser
+// Check if Session storage is enabled on your browser
 if (typeof(Storage) !== "undefined") {
     createStore();
     displayCart();
@@ -17,12 +17,10 @@ if (typeof(Storage) !== "undefined") {
     alert('Sorry, your browser does not support Web storage. Try again with a better one');
 }
 
-// Function to add item to cart
 function addItemToCart(item) {
-    localStorage.setItem(item, true);
+    sessionStorage.setItem(item, true);
 }
 
-// Function to create store
 function createStore() {
     let ul = document.createElement('ul');
     document.body.appendChild(ul);
@@ -37,14 +35,14 @@ function createStore() {
     });
 }
 
-// Function to display cart
 function displayCart() {
     let count = 0;
-    for(let i=0; i<localStorage.length; i++)   {
-        if(localStorage.getItem(localStorage.key(i)) === 'true') {
+    for(let i=0; i<sessionStorage.length; i++) {
+        if(sessionStorage.getItem(sessionStorage.key(i)) === 'true') {
             count++;
         }
     }
+    
     if(count > 0) {
         let p = document.createElement('p');
         p.textContent = `You previously had ${count} items in your cart`;
