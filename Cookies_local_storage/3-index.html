@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies & Local Storage</title>
+</head>
+<body>
+    
+    <div id="login-form">
+        <h1>Login to the website</h1>
+        <input type="text" id="firstname" placeholder="First Name">
+        <input type="text" id="email" placeholder="Email">
+        <button onclick="setCookies()">Log me in</button>
+    </div>
+    <button onclick="showWelcomeMessageOrForm()">Show Welcome</button>
+
+    <script>
+
+// Task 3. Delete cookie and mini application
+
+function setCookies() {
+    const firstnameValue = document.getElementById("firstname").value;
+    const emailValue = document.getElementById("email").value;
+
+    // Calculate the expiration date (10 days from now)
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + 10);
+
+    // Set cookies with expiration date
+    document.cookie = `firstname=${firstnameValue}; expires=${expirationDate.toUTCString()}`;
+    document.cookie = `email=${emailValue}; expires=${expirationDate.toUTCString()}`;
+}
+
+function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+            return cookie.substring(name.length + 1);
+        }
+    }
+    return '';
+}
+
+function showForm() {
+    const welcomeMessage = document.getElementById("welcome-message");
+    if (welcomeMessage) {
+        welcomeMessage.remove();
+    }
+    const loginForm = document.getElementById("login-form");
+    loginForm.style.display = "block";
+}
+
+function hideForm() {
+    const loginForm = document.getElementById("login-form");
+    loginForm.style.display = "none";
+}
+
+function deleteCookiesAndShowForm() {
+    document.cookie = "firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    showForm();
+}
+
+function showWelcomeMessageOrForm() {
+    const firstname = getCookie("firstname");
+    if (firstname) {
+        // User is logged in
+        const body = document.body;
+        body.innerHTML = `<h1>Welcome ${firstname} <a href="#" onclick="deleteCookiesAndShowForm()"> (logout)</a></h1>`;
+    } else {
+        // User is not logged in
+        showForm();
+    }
+}
+    </script>
+</body>
+</html>
