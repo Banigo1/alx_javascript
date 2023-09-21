@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Modifying Elements</title>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    img {
+      border: 1px solid black; 
+    }
+  </style>
+</head>
+<body>
+  <img id="myImage" src="https://picsum.photos/200/300" alt="My Image">
+
+  <script>
+    const img = document.getElementById('myImage');
+
+    img.src = 'https://picsum.photos/200/301';
+    img.alt = 'New image';
+    img.style.border = '2px solid red';
+  </script>
+
+</body>
+</html>

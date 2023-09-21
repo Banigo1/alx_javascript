@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Creating and Removing Elements</title>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <div id="container"></div>
+
+  <script>
+    const container = document.getElementById('container');
+
+    const para = document.createElement('p');
+    para.textContent = 'New paragraph';
+
+    container.appendChild(para);
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Toggle Paragraph';
+
+    let visible = true;
+    btn.addEventListener('click', function() {
+      if (visible) {
+        para.style.display = 'none';
+      } else {
+        para.style.display = 'block';  
+      }
+      visible = !visible;
+    });
+
+    container.appendChild(btn);
+  </script>
+
+</body>
+</html>
