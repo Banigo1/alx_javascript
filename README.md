@@ -1,5 +1,5 @@
 
-## This repository contains all my Javascript projects in the ALX Software Engineering Program 2023
+This repository contains all my Javascript projects in the ALX Software Engineering Program 2023
 ## JavaScript
 
 JavaScript is a widely-used programming language known for its role in web development. It is a high-level, interpreted language that allows developers to add interactivity and dynamic behavior to web pages.
