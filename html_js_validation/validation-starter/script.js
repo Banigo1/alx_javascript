@@ -43,8 +43,6 @@ phoneError.innerHTML = '<i class="fas fa-check-circle"></i>';
     return true;
 }
 
-
-
 function validateEmail(){
     var email = document.getElementById('contact-email').value;
 
